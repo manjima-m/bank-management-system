@@ -1,7 +1,10 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-public class login extends JFrame{
+
+public class login extends JFrame implements ActionListener{
         JLabel label,label2,label3;
         JTextField field1;
         JPasswordField password;
@@ -76,6 +79,9 @@ public class login extends JFrame{
        signButton.setForeground(Color.white);
        signButton.setBackground(Color.BLACK);
        signButton.setBounds(350,370,100,30);
+       signButton.setFocusable(false);
+       signButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+       signButton.addActionListener(this);
        add(signButton);
 
        /*clear button setup */
@@ -85,16 +91,22 @@ public class login extends JFrame{
        clrButton.setForeground(Color.white);
        clrButton.setBackground(Color.BLACK);
        clrButton.setBounds(500,370,100,30);
+       clrButton.setFocusable(false);
+       clrButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+       clrButton.addActionListener(this);
        add(clrButton);
 
        /*SignUp button */
 
 
-       signupButton = new JButton("Sign Up");
+       signupButton = new JButton("Register");
        signupButton.setFont(new Font(null,Font.PLAIN,14));
        signupButton.setForeground(Color.white);
        signupButton.setBackground(Color.BLACK);
        signupButton.setBounds(350,430,255,30);
+       signupButton.setFocusable(false);
+       signupButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+       signupButton.addActionListener(this);
        add(signupButton);
 
 
@@ -107,10 +119,12 @@ public class login extends JFrame{
     label11.setBounds(650,300,110,110);
     add(label11);
 
+   
 
 
     /*frame setting */
     setResizable(false);
+    setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     setBackground(Color.blue);
      setSize(850,580);
      setLocation(350,100);
@@ -122,5 +136,19 @@ public class login extends JFrame{
 
         new login();
 
+    }
+
+    @Override //login class
+    public void actionPerformed(ActionEvent e) {
+       if(e.getSource()==signButton){
+
+       }else if(e.getSource()==clrButton){
+            field1.setText("");
+            password.setText(""); //for clear the existing text and remove the text from pin and card no
+       }else if(e.getSource()==signupButton){
+          new signup();
+          dispose();
+       }
+        
     }
 }
