@@ -15,11 +15,11 @@ public class login extends JFrame implements ActionListener{
 
      /*bank logo */
      ImageIcon image1 = new ImageIcon("C:\\Users\\manji\\bank management\\bankimg.png");
-    Image image2 = image1.getImage().getScaledInstance(100, 100, Image.SCALE_DEFAULT);
-    ImageIcon image3 = new ImageIcon(image2);
-    JLabel label = new JLabel(image3);
-    label.setBounds(380,0,100,100);
-    add(label);
+     Image image2 = image1.getImage().getScaledInstance(100, 100, Image.SCALE_DEFAULT);
+     ImageIcon image3 = new ImageIcon(image2);
+     JLabel label = new JLabel(image3);
+     label.setBounds(380,0,100,100);
+     add(label);
 
 
 
