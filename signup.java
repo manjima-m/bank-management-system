@@ -20,7 +20,7 @@ public class signup extends JFrame implements ActionListener{
     super("Signup Form");
 
     /*Image icon settings bank */
-    ImageIcon image1 = new ImageIcon("C:\\Users\\manji\\bank management\\bankimg.png");
+    ImageIcon image1 = new ImageIcon("C:\\Users\\manji\\bank management\\bank.png");
     Image image2 = image1.getImage().getScaledInstance(100, 100, Image.SCALE_DEFAULT);
     ImageIcon image3 = new ImageIcon(image2);
     JLabel label = new JLabel(image3);
@@ -226,8 +226,44 @@ add(state);
     }
     @Override
     public void actionPerformed(ActionEvent e) {
-        if(e.getSource()==button){
-            
+        String formno = reg_num;
+        String name = textname.getText();
+        String fname = textfname.getText();
+        String mname = textmname.getText();
+        String dateofB = dob.getText();//((JTextField) dateChooser.getDateEditor().getUIComponent()).getText();
+        String gen = null;
+        if(genderM.isSelected()){
+                gen="Male";
+        }else if(genderF.isSelected()){
+            gen="Female";
+        }else{
+            gen = "Others";
+        }
+        String mail = email.getText();
+
+        String mstatus = null;
+        if(married.isSelected()){
+            mstatus = "Married";
+        }else{
+            mstatus = "Unmarried";
+        }
+        String addr = address.getText();
+        String cite = city.getText();
+        String pinc = pincode.getText();
+        String stat = state.getText();
+
+        try{
+            if(textname.getText().equals("")){
+                JOptionPane.showMessageDialog(null,"Fill all the fields");
+            }else{
+                connection conn1 = new connection();
+                String q = "insert into signup values ('"+formno+"','"+name+"', '"+fname+"','"+mname+"','"+dateofB+"','"+gen+"','"+mail+"','"+mstatus+"','"+addr+"','"+cite+"','"+pinc+"','"+stat+"')";
+                conn1.statement.executeUpdate(q);
+                new signup2();
+                setVisible(false);
+            }
+        }catch(Exception E){
+            E.printStackTrace();
         }
 
 

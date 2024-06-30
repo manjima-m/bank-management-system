@@ -14,7 +14,7 @@ public class login extends JFrame implements ActionListener{
      super("Bank Management System");
 
      /*bank logo */
-     ImageIcon image1 = new ImageIcon("C:\\Users\\manji\\bank management\\bankimg.png");
+     ImageIcon image1 = new ImageIcon("C:\\Users\\manji\\bank management\\bank.png");
      Image image2 = image1.getImage().getScaledInstance(100, 100, Image.SCALE_DEFAULT);
      ImageIcon image3 = new ImageIcon(image2);
      JLabel label = new JLabel(image3);

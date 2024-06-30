@@ -13,14 +13,14 @@ public class signup2 extends JFrame implements ActionListener{
     JRadioButton senioryes,seniorno,yesexisted,notexisted;
     JButton button;
     String formno;
-    signup2(String reg_num){
+    signup2(){
     super("Signup Form");
     
     this.formno = formno;
 
 
     /*Image icon settings bank */
-    ImageIcon image1 = new ImageIcon("C:\\Users\\manji\\bank management\\bankimg.png");
+    ImageIcon image1 = new ImageIcon("C:\\Users\\manji\\bank management\\bank.png");
     Image image2 = image1.getImage().getScaledInstance(100, 100, Image.SCALE_DEFAULT);
     ImageIcon image3 = new ImageIcon(image2);
     JLabel label = new JLabel(image3);
@@ -205,7 +205,7 @@ add(notexisted);
 
     }
     public static void main(String[] args){
-        new signup2(" ");
+        new signup2();
     }
     @Override
     public void actionPerformed(ActionEvent e) {
