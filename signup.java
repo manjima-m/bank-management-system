@@ -259,7 +259,7 @@ add(state);
                 connection conn1 = new connection();
                 String q = "insert into signup values ('"+formno+"','"+name+"', '"+fname+"','"+mname+"','"+dateofB+"','"+gen+"','"+mail+"','"+mstatus+"','"+addr+"','"+cite+"','"+pinc+"','"+stat+"')";
                 conn1.statement.executeUpdate(q);
-                new signup2();
+                new signup2(""+reg_num);
                 setVisible(false);
             }
         }catch(Exception E){

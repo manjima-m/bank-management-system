@@ -8,12 +8,20 @@ import javax.swing.*;
 public class signup2 extends JFrame implements ActionListener{
 
     
-    JTextField pan_no,aadhar_no;
-    JComboBox religion,category,education,occupation,income;
-    JRadioButton senioryes,seniorno,yesexisted,notexisted;
+     JTextField pan_no;
+     JTextField aadhar_no;
+     JComboBox religion;
+    JComboBox category;
+    JComboBox education;
+    JComboBox occupation;
+    JComboBox income;
+     JRadioButton senioryes;
+     JRadioButton seniorno;
+     JRadioButton yesexisted;
+     JRadioButton notexisted;
     JButton button;
     String formno;
-    signup2(){
+    signup2(String formno){
     super("Signup Form");
     
     this.formno = formno;
@@ -205,14 +213,51 @@ add(notexisted);
 
     }
     public static void main(String[] args){
-        new signup2();
+        
+        new signup2("");
     }
+
     @Override
     public void actionPerformed(ActionEvent e) {
-        if(e.getSource()==button){
-            
+        String rel = (String) religion.getSelectedItem(); 
+        String cat = (String) category.getSelectedItem();
+        String inc = (String) income.getSelectedItem();
+        String edu = (String) education.getSelectedItem(); 
+        String occ = (String) occupation.getSelectedItem();
+        String panno = pan_no.getText();
+        String aad = aadhar_no.getText();
+
+        String scitizen = null;
+        if(senioryes.isSelected()){
+            scitizen = "Yes";
+        }else if(seniorno.isSelected()){
+            scitizen="No";
         }
 
+        String Eaccount =null;
+        if(yesexisted.isSelected()){
+            Eaccount="Yes";
+        }else if(notexisted.isSelected()){
+            Eaccount="No";
+        }
+
+        try{
+
+            if(pan_no.getText().equals("") || aadhar_no.getText().equals("")){
+                JOptionPane.showMessageDialog(null,"Fill the required fields");
+
+            }else{
+                connection c1 = new connection();
+                String query = "Insert into signuptwo values('"+formno+"','"+rel+"','"+cat+"','"+inc+"','"+edu+"','"+occ+"','"+panno+"','"+aad+"','"+scitizen+"','"+Eaccount+"')";
+                c1.statement.executeUpdate(query);
+                new signup3(formno);
+                this.setVisible(false);
+            }
+
+        }catch(Exception E){
+            E.printStackTrace();
+            
+        }
 
     }
 }
