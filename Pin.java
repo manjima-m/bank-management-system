@@ -12,6 +12,7 @@ public class Pin extends JFrame{
         setLayout(null);
         setLocationRelativeTo(null);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+       setBackground(Color.white);
 
         JLabel label1 = new JLabel("Change Your PIN");
         label1.setBounds(180,50,300,50);
