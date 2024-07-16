@@ -2,6 +2,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 
 public class login extends JFrame implements ActionListener{
@@ -129,6 +131,7 @@ public class login extends JFrame implements ActionListener{
      setSize(850,580);
      setLocation(350,100);
     setLayout(null);
+    setUndecorated(true);
      setVisible(true);
     }
     
@@ -141,6 +144,24 @@ public class login extends JFrame implements ActionListener{
     @Override //login class
     public void actionPerformed(ActionEvent e) {
        if(e.getSource()==signButton){
+
+         connection c = new connection();
+         String cardno=field1.getText();
+         String pinno = password.getText();
+         String q = "select * from login where cardno='"+cardno+"' and pinno='"+pinno+"'";
+         try {
+            ResultSet result = c.statement.executeQuery(q);
+
+            if(result.next()){
+               setVisible(false);
+               new Main(pinno);
+            }else{
+               JOptionPane.showMessageDialog(null, "Incorrect PIN/Card Number");
+            }
+         } catch (SQLException e1) {
+           
+            e1.printStackTrace();
+         }
 
        }else if(e.getSource()==clrButton){
             field1.setText("");

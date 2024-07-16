@@ -1,18 +1,21 @@
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 
-public class Main extends JFrame{
+public class Main extends JFrame implements ActionListener{
 
     JButton b1,b2,b3,b4,b5,b6,b7;
+    String pinno;
 
-    Main(){
+    Main(String pinno){
 
         super("Transactions");
-
+        this.pinno=pinno;
         /*label for asking transactions */
         JLabel label1 = new JLabel("PLEASE SELECT YOUR TRANSACTIONS");
         label1.setBounds(360,20,800,60);
@@ -94,7 +97,18 @@ public class Main extends JFrame{
         setVisible(true);
 
     }
-    public static void main(String[] args){
-        new Main();
+    
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        if(e.getSource()==b1){
+            new Deposit(pinno);
+            setVisible(false);
+        }else if(e.getSource()==b7){
+            System.exit(0);
+        }
     }
+
+public static void main(String[] args){
+    new Main(" ");
+}
 }
