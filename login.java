@@ -131,7 +131,7 @@ public class login extends JFrame implements ActionListener{
      setSize(850,580);
      setLocation(350,100);
     setLayout(null);
-    setUndecorated(true);
+   
      setVisible(true);
     }
     
@@ -153,8 +153,9 @@ public class login extends JFrame implements ActionListener{
             ResultSet result = c.statement.executeQuery(q);
 
             if(result.next()){
-               setVisible(false);
                new Main(pinno);
+               setVisible(false);
+               
             }else{
                JOptionPane.showMessageDialog(null, "Incorrect PIN/Card Number");
             }

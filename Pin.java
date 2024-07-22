@@ -1,12 +1,17 @@
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.*;
 
-public class Pin extends JFrame{
+public class Pin extends JFrame implements ActionListener{
     JTextField t1,t2;
-    JButton deposit,back;
-    Pin(){
+    JButton change,back;
+    String pinno;
+    Pin(String pinno){
+
+        this.pinno=pinno;
         
         setSize(1000,800);
         setLayout(null);
@@ -37,12 +42,13 @@ public class Pin extends JFrame{
         t2.setBounds(400,230,300,30);
         add(t2);
 
-        deposit = new JButton("DEPOSIT");
-        deposit.setBounds(600,500,230,35);
-        deposit.setBackground(Color.BLACK);
-        deposit.setForeground(Color.WHITE);
-        deposit.setFocusable(false);
-        add(deposit);
+        change = new JButton("CHANGE");
+        change.setBounds(600,500,230,35);
+        change.setBackground(Color.BLACK);
+        change.setForeground(Color.WHITE);
+        change.setFocusable(false);
+        change.addActionListener(this);
+        add(change);
 
 
         back = new JButton("BACK");
@@ -50,6 +56,7 @@ public class Pin extends JFrame{
         back.setBackground(Color.BLACK);
         back.setForeground(Color.WHITE);
         back.setFocusable(false);
+        back.addActionListener(this);
         add(back);
 
         
@@ -57,6 +64,51 @@ public class Pin extends JFrame{
     }
 
     public static void main(String[] args){
-        new Pin();
+        new Pin(" ");
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        
+        try{
+
+            String p1=t1.getText();
+            String p2=t2.getText();
+
+            if(!p1.equals(p2)){
+                JOptionPane.showMessageDialog(null, "Enter pin does not match");
+                return;
+            }
+            if(e.getSource()==change){
+                if(t1.getText().equals("")){
+                    JOptionPane.showMessageDialog(null, "Enter New PIN");
+                }else if(t2.getText().equals("")){
+                    JOptionPane.showMessageDialog(null, "Re-Enter the PIN");
+                }else{
+            
+
+           // connection c = new connection();
+           // String q1="update bank set pinno = '"+p1+"' where pinno = '"+pinno+"'";
+            //String q2 = "update login set pinno = '"+p1+"' where pinno='"+pinno+"'";
+            //String q3 = "update signupthree set pinno ='"+p1+"' where pinno='"+pinno+'"';
+
+            //c.statement.executeUpdate(q1);
+            //c.statement.executeUpdate(q2);
+            //c.statement.executeUpdate(q3);
+
+            //JOptionPane.showMessageDialog(null, "PIN updated successfully");
+            //setVisible(false);
+            //new Main(pinno);
+            }
+        }else if(e.getSource()==back){
+            new Main(pinno);
+            setVisible(false);
+
+        }
+        
+
+        }catch(Exception E){
+            E.printStackTrace();
+        }
     }
 }
