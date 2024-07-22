@@ -12,10 +12,10 @@ public class Main extends JFrame implements ActionListener{
     JButton b1,b2,b3,b4,b5,b6,b7;
     String pinno;
 
-    Main(String pinno){
+    Main(String pinno2){
 
         super("Transactions");
-        this.pinno=pinno;
+        this.pinno=pinno2;
         /*label for asking transactions */
         JLabel label1 = new JLabel("PLEASE SELECT YOUR TRANSACTIONS");
         label1.setBounds(360,20,800,60);
@@ -77,6 +77,7 @@ public class Main extends JFrame implements ActionListener{
         b6.setFont(new Font("System",Font.PLAIN,20));
         b6.setForeground(Color.WHITE);
         b6.setBackground(Color.BLACK);
+        b6.addActionListener(this);
         add(b6);
 
         /*button for exit */
@@ -86,6 +87,7 @@ public class Main extends JFrame implements ActionListener{
         b7.setFont(new Font("System",Font.PLAIN,20));
         b7.setForeground(Color.WHITE);
         b7.setBackground(Color.BLACK);
+        b7.addActionListener(this);
         add(b7);
 
 

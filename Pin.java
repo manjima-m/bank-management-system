@@ -87,18 +87,18 @@ public class Pin extends JFrame implements ActionListener{
                 }else{
             
 
-           // connection c = new connection();
-           // String q1="update bank set pinno = '"+p1+"' where pinno = '"+pinno+"'";
-            //String q2 = "update login set pinno = '"+p1+"' where pinno='"+pinno+"'";
-            //String q3 = "update signupthree set pinno ='"+p1+"' where pinno='"+pinno+'"';
+           connection c = new connection();
+            //String q1="update bank set pinno = '"+p1+"' where pinno = '"+pinno+"'";
+            String q2 = "update login set pinno = '"+p1+"' where pinno='"+pinno+"'";
+            String q3 = "update signupthree set pinno ='"+p1+"' where pinno='"+pinno+'"';
 
             //c.statement.executeUpdate(q1);
-            //c.statement.executeUpdate(q2);
-            //c.statement.executeUpdate(q3);
+            c.statement.executeUpdate(q2);
+            c.statement.executeUpdate(q3);
 
-            //JOptionPane.showMessageDialog(null, "PIN updated successfully");
-            //setVisible(false);
-            //new Main(pinno);
+            JOptionPane.showMessageDialog(null, "PIN updated successfully");
+            setVisible(false);
+            new Main(pinno);
             }
         }else if(e.getSource()==back){
             new Main(pinno);

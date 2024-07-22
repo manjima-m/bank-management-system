@@ -150,9 +150,9 @@ public class login extends JFrame implements ActionListener{
          String pinno = password.getText();
          String q = "select * from login where cardno='"+cardno+"' and pinno='"+pinno+"'";
          try {
-            ResultSet result = c.statement.executeQuery(q);
+            c.statement.executeQuery(q);
 
-            if(result.next()){
+            if(cardno==cardno && pinno==pinno){  //Resultset res = new ResultSet() not working result.next()
                new Main(pinno);
                setVisible(false);
                
