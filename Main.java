@@ -49,6 +49,7 @@ public class Main extends JFrame implements ActionListener{
         b3.setFont(new Font("System",Font.PLAIN,20));
         b3.setForeground(Color.WHITE);
         b3.setBackground(Color.BLACK);
+        b3.addActionListener(this);
         add(b3);
 
         /*button for mini statement */
@@ -102,13 +103,13 @@ public class Main extends JFrame implements ActionListener{
     
     @Override
     public void actionPerformed(ActionEvent e) {
-        if(e.getSource()==b1){
-            new Deposit(pinno);
-            setVisible(false);
-        }else if(e.getSource()==b7){
+       if(e.getSource()==b7){
             System.exit(0);
         }else if(e.getSource()==b6){
             new Pin(pinno);
+            setVisible(false);
+        }else if(e.getSource()==b3){
+            new Fastcash(pinno);
             setVisible(false);
         }
     }
