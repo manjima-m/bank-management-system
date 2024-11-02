@@ -22,10 +22,10 @@ public class Withdrawal extends JFrame implements ActionListener {
     Withdrawal(String pin) { 
         this.pin = pin;
 
-        ImageIcon i1 = new ImageIcon(ClassLoader.getSystemResource("icons/atm.png"));
+        /*ImageIcon i1 = new ImageIcon(ClassLoader.getSystemResource("icons/atm.png"));
         Image i2 = i1.getImage().getScaledInstance(1550,830 , Image.SCALE_DEFAULT);
-        ImageIcon i3 = new ImageIcon(i2);
-        JLabel l3 = new JLabel(i3);
+        ImageIcon i3 = new ImageIcon(i2);*/
+        JLabel l3 = new JLabel();
         l3.setBounds(0, 0, 1550, 830);
         add(l3);
 
@@ -70,7 +70,7 @@ public class Withdrawal extends JFrame implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if (e.getSource() == b1)
+        if (e.getSource() == b1){
         try {
             String amount = textField.getText();
             Date date = new Date();
@@ -94,16 +94,18 @@ public class Withdrawal extends JFrame implements ActionListener {
                 c.statement.executeUpdate("insert into bank values('"+pin+"','"+date+"', 'withdrawal', '"+amount+"')");
                 JOptionPane.showMessageDialog(null, "Rs. "+amount+" Debited Successfully");
                 setVisible(false);
-                // new main_class(pin);
+                 new Main(pin);
             }
         } catch (Exception E) {
             
         }
-    } else if (e.getSource == b2) {
+    } else if (e.getSource() == b2) {
         setVisible(false);
-        // new main_class(pin);
+         new Main(pin);
     }
+}
     public static void main(String[] args) {
         new Withdrawal("");
     }
 }
+

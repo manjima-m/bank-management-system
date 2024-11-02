@@ -108,9 +108,18 @@ public class Main extends JFrame implements ActionListener{
         }else if(e.getSource()==b6){
             new Pin(pinno);
             setVisible(false);
-        }else if(e.getSource()==b3){
+        }else if(e.getSource()==b5){
+            new BalanceEnquiry();
+        }else if(e.getSource()==b4){
+            new MiniStatement(pinno);
+        }
+        else if(e.getSource()==b3){
             new Fastcash(pinno);
             setVisible(false);
+        }else if(e.getSource()==b2){
+            new Withdrawal(pinno);
+        }else if(e.getSource()==b1){
+            new Deposit(pinno);
         }
     }
 

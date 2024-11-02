@@ -79,7 +79,7 @@ public class BalanceEnquiry extends JFrame implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         setVisible(false);
-        // new main_class();
+        // new Main();
     }
     public static void main(String[] args) {
         new BalanceEnquiry();
